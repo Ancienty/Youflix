@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  {% block title %}
+    <title>Youflix | Home</title>
+    {% endblock %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block css_files %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  {% endblock %}
+</head>
+<body>
+  {% block content %}
+
+    <section class="quote-section"> 
+        {% for quote_data in initial_quote_data %}
+            <div class="quote-container">
+                <div class="quote-of-the-day">"{{ quote_data.quote }}"</div>
+                <div class="quote-of-the-day-movie-name">- {{ quote_data.by }}</div>
+            </div>
+        {% endfor %}
+    </section>
+
+    <section class="top-rated-section">
+        <div class="top-rated-column-text">Highest ranked movies of all time - We thought you might like these!</div>
+        <div class="top-rated-column">
+            {% for top_rated in top_rated_movies %}
+                <img src="{{ top_rated.poster_link }}" alt="{{ top_rated.series_title }}" class="movie-poster">
+            {% endfor %}
+        </div>
+    </section>
+  {% endblock %}
+</body>
+</html>

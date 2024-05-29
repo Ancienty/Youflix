@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<head>
+    {% block title %}
+    <title>Youflix | Register</title>
+    {% endblock %}
+</head>
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="center-content">
+    <div class="container">
+        <div class="user_card">
+            <h3 class="form-title">REGISTER ACCOUNT</h3>
+            <form method="POST" action="" class="form_container">
+                {% csrf_token %}
+                {% if form.errors %}
+                <div class="alert alert-danger">
+                    Please correct the following errors:
+                    <ul>
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" name="username" placeholder="Username.." class="form-control">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+                    </div>
+                    <input type="email" name="email" placeholder="Email.." class="form-control">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" name="password1" placeholder="Enter password..." class="form-control">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" name="password2" placeholder="Re-enter Password..." class="form-control">
+                </div>
+                <div class="login_container">
+                    <input class="login_btn" type="submit" value="Register Account">
+                </div>
+            </form>
+            <div class="links">
+                Already have an account? <a href="{% url 'login' %}">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

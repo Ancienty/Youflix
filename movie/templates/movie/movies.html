@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>Youflix | Movies</title>
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css_files %}
+        <link rel="stylesheet" href="{% static 'css/movies.css' %}">
+    {% endblock %}
+</head>
+<body>
+  {% block content %}
+  <div id="movie-slider">
+    <button id="prev-btn" class="slider-btn">&lt;</button>
+    <div class="movie-container" id="movieContainer">
+      {% for movie in movies %}
+      <div class="movie-item" {% if forloop.counter > 5 %}style="display: none;"{% endif %}>
+        <div class="movie-poster-container">
+          <img src="{{ movie.poster_link }}" alt="{{ movie.series_title }}" class="movie-poster">
+          <div class="movie-details">
+            <h2>{{ movie.series_title }}</h2>
+            <div class="movie-info-container">
+              <p><strong>Genre:</strong> {{ movie.genre }}</p>
+              <p><strong>Stars:</strong> {{ movie.star1 }}, {{ movie.star2 }}, {{ movie.star3 }}</p>
+              <p><strong>Director:</strong> {{ movie.director }}</p>
+              <p><strong>Release Year:</strong> {{ movie.released_year }}</p>
+            </div>
+            <div class="movie-description">
+              <p>{{ movie.overview }}</p>
+              {% if user.is_authenticated %}
+              <button class="btn add-to-watchlist" data-movie-id="{{ movie.id }}">Add to Watchlist</button>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <button id="next-btn" class="slider-btn">&gt;</button>
+  </div>
+
+  <!-- Include CSRF token -->
+  <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+  <script>
+    // Ensure JSON is properly escaped
+    const allMovies = JSON.parse('{{ initial_movie_data|escapejs }}');
+    const addToWatchlistUrl = '{{ add_to_watchlist_url }}'; // Pass the URL to JavaScript
+  </script>
+  <script src="{% static 'js/slider.js' %}"></script>
+  {% if user.is_authenticated %}
+    <script src="{% static 'js/add_to_watchlist.js' %}" defer></script>
+  {% endif %}
+  {% endblock %}
+</body>
+</html>

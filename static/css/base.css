@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #363636;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.top-side {
+    width: 100%;
+    padding-top: 1.3vw;
+    padding-bottom: 1.3vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #1c1c1c;
+}
+
+.top-logo {
+    max-width: 37%;
+}
+
+.top-side button {
+    border-radius: 10px;
+    border-width: 2vw;
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+    font-family: Arial, serif;
+    font-weight: bolder;
+    font-size: 1.2vw;
+}
+
+.top-side button:hover {
+    background: #262626;
+    cursor: pointer;
+}
+
+.content {
+    flex: 1;
+    width: 100%;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c1c1c;
+    padding: 1rem 0;
+}

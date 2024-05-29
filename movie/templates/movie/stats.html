@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<head>
+    {% block title %}
+    <title>Youflix | Stats</title>
+    {% endblock %}
+</head>
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/stats.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="stats-container">
+    <h1>Stats</h1>
+
+    <div class="stats-box">
+        <h2>General Information</h2>
+        <p>You've seen <strong>{{ total_movies_watched }}</strong> movies so far!</p>
+        <p>That means <strong>{{ total_minutes_watched }}</strong> minutes!</p>
+    </div>
+
+    <div class="stats-box">
+        {% if top_genres %}
+        <h2>Favorite Genres</h2>
+        <p>Your favorite genres are:
+            {% for genre, rating in top_genres %}
+            <strong>{{ genre }}</strong> ({{ rating }} stars)
+            {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        {% else %}
+        <p>You don't have favorite genres yet.</p>
+        {% endif %}
+    </div>
+
+    <div class="stats-box">
+        {% if favorite_actors %}
+        <h2>Favorite Actors</h2>
+        <p>Your favorite actors are:
+            {% for actor, rating in favorite_actors %}
+            <strong>{{ actor }}</strong> ({{ rating }} stars)
+            {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        {% else %}
+        <p>You don't have favorite actors yet.</p>
+        {% endif %}
+    </div>
+
+    <div class="stats-box">
+        <h2>Your Highest Rated Movies:</h2>
+        <ul>
+            {% for rating in top_rated_movies %}
+            <li>
+                <img src="{{ rating.movie.poster_link }}" alt="{{ rating.movie.series_title }}" class="movie-banner">
+                <div class="movie-title">{{ rating.movie.series_title }} - {{ rating.rating }} stars</div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

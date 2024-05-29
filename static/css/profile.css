@@ -1,0 +1,125 @@
+body {
+  background-color: #363636; 
+  color: #fff; 
+  font-family: Arial, sans-serif; 
+}
+
+.user_profile_container {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #444; 
+  max-width: 1200px; 
+  margin: 20px auto;
+}
+
+.watched_movies_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.movie-item {
+  width: calc(25% - 20px); 
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #555; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  transition: transform 0.2s;
+}
+
+.movie-item:hover {
+  transform: scale(1.05);
+}
+
+.movie-poster-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.movie-poster {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie-details {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.movie-info-container p,
+.movie-description p {
+  margin: 5px 0; 
+}
+
+.movie-info-container {
+  flex-grow: 1;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  margin-top: 10px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.remove-from-watchlist {
+  background-color: #dc3545;
+}
+
+.remove-from-watchlist:hover {
+  background-color: #c82333;
+}
+
+.rate-movie {
+  background-color: #7dbf7d; 
+}
+
+.rate-movie:hover {
+  background-color: #6aa96a;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; 
+  margin-top: 10px;
+}
+
+.button-container .btn {
+  flex: 1; 
+  max-width: calc(50% - 10px); 
+}
+
+.footer-links {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footer-links a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}

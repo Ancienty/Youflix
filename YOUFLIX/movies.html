@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Movies{% endblock %}
+<html lang="en">
+<head>
+
+</head>
+<body>
+{% block topmovies %}
+        <h1>Top 10 Movies</h1>
+        <ul>
+            {% for movie in movies %}
+                <li>
+                    <strong> {{ Series_Title }}</strong> {{ Released_Year }}
+                     - Rating: {{ IMDB_Rating }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endblock %}
+</body>
+</html>

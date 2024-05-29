@@ -1,0 +1,121 @@
+#movie-slider {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+}
+
+.movie-container {
+    margin-top: 75px;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    flex: 1;
+}
+
+.movie-item {
+    flex: 0 0 calc(20% - 20px); 
+    margin: 10px;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+    overflow: hidden;
+    position: relative; 
+}
+
+.movie-poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    transition: transform 0.3s ease; 
+}
+
+.movie-item:hover .movie-poster {
+    transform: scale(1.2); 
+}
+
+.movie-item .movie-details {
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    z-index: 2;
+    overflow-y: hidden;
+    max-height: 100%;
+    top: 0;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-item:hover .movie-details {
+    opacity: 1;
+}
+
+.movie-item .movie-details h2 {
+    text-overflow: ellipsis; 
+    white-space: nowrap;  
+    overflow: hidden;      
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.movie-item .movie-details p {
+    font-size: 14px;  
+    line-height: 1.4; 
+    margin-bottom: 0;
+    max-height: 120px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.movie-item .movie-details p + p { 
+    margin-top: 5px;   
+}
+
+.movie-details strong {
+    font-weight: bold; 
+}
+
+.movie-info-container {
+    margin-bottom: auto; 
+}
+
+.movie-description {
+    margin-top: auto; 
+}
+
+.movie-item .add-to-watchlist { 
+    display: block; 
+    margin-top: 10px; 
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+#prev-btn, #next-btn {
+    background-color: #333;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.2s;
+}
+
+#prev-btn:hover, #next-btn:hover {
+    background-color: #555;
+}

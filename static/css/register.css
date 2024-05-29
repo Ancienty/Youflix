@@ -1,0 +1,121 @@
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+
+.container {
+    width: 100%;
+    margin: 5% auto;
+    max-width: 400px;
+    background-color: #1c1c1c;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.user_card {
+    width: 90%;
+    padding: 20px;
+    background-color: #262626;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+
+.input-group-prepend {
+    background-color: #444;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+
+.input-group-text {
+    color: #fff;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: #555;
+    color: #fff;
+}
+
+
+.login_container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+.links {
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+}
+
+
+.links a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+
+.links a:hover {
+    color: #0056b3;
+}
+
+
+.alert.alert-danger {
+    color: red;
+    margin-bottom: 15px;
+}
